@@ -4,7 +4,7 @@ from PIL import Image
 import os
 
 def grab_image(keyword):
-    url = f"https://loremflickr.com/1024/1024/{keyword}"
+    url = f"https://loremflickr.com/512/512/{keyword}"
     response = requests.get(url)
     if response.status_code == 200:
         image_link = response.url
@@ -26,7 +26,6 @@ def save_image_to_json(keyword, image_link):
     with open('images.json', 'w') as file:
         json.dump(data, file, indent=4)
 
-# Example usage
 keyword = input("Enter a keyword: ")
 while True:
     image_link = grab_image(keyword)
